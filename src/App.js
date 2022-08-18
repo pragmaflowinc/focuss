@@ -1,25 +1,91 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { TextField, Typography, IconButton } from 'ui-neumorphism'
+
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function clearInput() {
+  document.getElementsByName('mainInput')[0].setState({ value: "" })
+}
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      todos: [],
+      value: "",
+    };
+  }
+  onChange = (e) => {
+    this.setState({ value: e.target.value });
+  };
+  onAddTask = (e) => {
+    e.preventDefault();
+
+    const obj = {
+      name: this.state.value,
+      id: Date.now(),
+    };
+    if (this.state.value !== "") {
+      this.setState({ todos: this.state.todos.concat(obj) });
+      this.setState({ value: "" });
+    }
+  };
+
+  onDeleteTask = (itemId) => {
+    this.setState({
+      todos: [...this.state.todos].filter((id) => id.id !== itemId),
+    });
+  };
+
+
+  render() {
+    const mylist = this.state.todos.map((todo) => (
+      <li className="todo_item">
+        {todo.name}
+
+        <button onClick={() => this.onDeleteTask(todo.id)}>Remove</button>
+      </li>
+    ));
+
+    return (
+      <div className="App">
+
+        <header className="App-header">
+          <div id="body">
+
+            <div className="row">
+
+              <TextField
+                autofocus={true}
+                dark={true}
+                height={80}
+                type="text"
+                className='input' //outter div
+                name='mainInput'
+                placeholder="what's the next focus?"
+
+
+              />
+              <IconButton
+                dark={true}
+                onClick={clearInput}
+                height={80}
+                icon="check"
+
+              />
+
+            <div className="row">
+              <ul className="todo_wrapper">{mylist}</ul>
+            </div>
+
+            </div>
+          </div>
+        </header>
+
+      </div>
+    );
+  }
 }
 
 export default App;
