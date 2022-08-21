@@ -73,3 +73,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ### `sudo chmod +x node_modules/.bin/react-scripts`
 
 Fixes react-scripts missing permission issues on yarn/npm start
+
+### Set Window Always on Top
+https://www.electronjs.org/docs/latest/api/browser-window#winsetalwaysontopflag-level-relativelevel

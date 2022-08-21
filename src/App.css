@@ -2,15 +2,34 @@
   text-align: center;
 }
 
+#root {
+  text-align: center;
+  width: 100%;
+  margin-left : "auto";
+  margin-right : "auto";
+}
+
+html {
+  background-color: #282c34;
+  -webkit-app-region: drag;
+  
+  
+}
+
+body {
+  background-color: #282c34;
+  overflow-x: hidden;
+}
+
 input[name="mainInput"]{
   font-size: 54px;
   width: fit-content;
   min-width: 400px;
+  width: fit-content(1280px);
+  height: calc(100% - 40px); /*not working*/
 }
 
-.input{
-  width: fit-content(1280px);
-}
+
 
 .App-logo {
   height: 40vmin;
@@ -24,7 +43,6 @@ input[name="mainInput"]{
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

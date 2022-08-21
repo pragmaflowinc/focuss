@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TextField, Typography, IconButton } from 'ui-neumorphism'
+import { TextField, IconButton } from 'ui-neumorphism'
 
 
 import './App.css';
@@ -44,7 +44,7 @@ class App extends Component {
       <li className="todo_item">
         {todo.name}
 
-        <button onClick={() => this.onDeleteTask(todo.id)}>Remove</button>
+        <IconButton onClick={() => this.onDeleteTask(todo.id)}>Remove</IconButton>
       </li>
     ));
 
@@ -64,14 +64,17 @@ class App extends Component {
                 className='input' //outter div
                 name='mainInput'
                 placeholder="what's the next focus?"
+                background = "#050505"
+                
 
 
               />
               <IconButton
                 dark={true}
                 onClick={clearInput}
-                height={80}
-                icon="check"
+                height={150}
+                width={150}
+                icon="checkbox"
 
               />
 

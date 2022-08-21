@@ -1,5 +1,6 @@
 :root {
   --light-bg: #050505;
+  width: auto;
 }
 
 
@@ -11,7 +12,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-app-region: drag;
   background-color: var(--light-bg);
 }
 

@@ -7,15 +7,18 @@ const isDev = require('electron-is-dev');
 function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
-    width: 600,
-    height: 200,
+    width: 775,
+    height: 150,
     frame: false,
     titleBarStyle: 'hidden',
     titleBarOverlay: true,
+    maximizable: false,    
     webPreferences: {
       nodeIntegration: true,
     },
   });
+
+  win.setAlwaysOnTop(true, 'screen');
 
   // and load the index.html of the app.
   // win.loadFile("index.html");
