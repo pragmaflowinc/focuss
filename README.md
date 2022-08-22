@@ -76,3 +76,6 @@ Fixes react-scripts missing permission issues on yarn/npm start
 
 ### Set Window Always on Top
 https://www.electronjs.org/docs/latest/api/browser-window#winsetalwaysontopflag-level-relativelevel
+
+### Build
+yarn electron-builder -wml (windows/mac/linux)

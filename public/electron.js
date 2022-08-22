@@ -12,13 +12,18 @@ function createWindow() {
     frame: false,
     titleBarStyle: 'hidden',
     titleBarOverlay: true,
-    maximizable: false,    
+    maximizable: false,
+    alwaysOnTop: true,    
     webPreferences: {
       nodeIntegration: true,
     },
+    
   });
-
-  win.setAlwaysOnTop(true, 'screen');
+  
+  win.setVisibleOnAllWorkspaces(true, {visibleOnFullScreen:true});
+  win.setAlwaysOnTop(true, "normal")
+  win.setFullScreenable(false)
+  win.moveTop()
 
   // and load the index.html of the app.
   // win.loadFile("index.html");
