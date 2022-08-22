@@ -9,17 +9,18 @@ function createWindow() {
   const win = new BrowserWindow({
     width: 775,
     height: 150,
-    frame: false,
-    titleBarStyle: 'hidden',
-    titleBarOverlay: true,
-    maximizable: false,
-    alwaysOnTop: true,    
+    frame: false, //remove window frame
+    titleBarStyle: 'hidden', //remove title bar
+    titleBarOverlay: false, //remove min/max/close buttons
+    maximizable: false, //prevent double-click to mazimize
+    alwaysOnTop: true,
     webPreferences: {
       nodeIntegration: true,
     },
     
   });
   
+  //Always on top
   win.setVisibleOnAllWorkspaces(true, {visibleOnFullScreen:true});
   win.setAlwaysOnTop(true, "normal")
   win.setFullScreenable(false)
