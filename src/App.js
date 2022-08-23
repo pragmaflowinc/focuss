@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { NuTextField } from './components/NuTextField'
 import { NuIconButton } from './components/NuIconButton'
-
-
+import { Countdown } from './components/Timer'
 import './App.css';
 
-function clearInput() {
-  document.getElementsByName('mainInput')[0].setState({ value: "" })
-}
+
+
 
 class App extends Component {
   // constructor() {
@@ -62,7 +60,7 @@ class App extends Component {
                 }}>
 
               <NuTextField />
-              <NuIconButton onclick = {clearInput} display="none"/>
+              {/* <NuIconButton onclick = {clearInput} display="none"/> */}
 
             {/* <div className="row">
               <ul className="todo_wrapper">{mylist}</ul>
