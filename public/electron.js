@@ -20,7 +20,7 @@ function createWindow() {
     
   });
   
-  //Always on top
+  //Always on top -this might not be needed since repeats above. On other hand, might be better implementation for dynamic always on top setting.
   win.setVisibleOnAllWorkspaces(true, {visibleOnFullScreen:true});
   win.setAlwaysOnTop(true, "normal")
   win.setFullScreenable(false)

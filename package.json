@@ -21,8 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "concurrently -k \"BROWSER=none yarn start\" \"yarn:electron\"",
-    "devWin": "concurrently -k \"SET BROWSER=none && yarn start\" \"yarn:electron\"",
+    "devLin": "concurrently -k \"BROWSER=none yarn start\" \"yarn:electron\"",
+    "dev": "concurrently -k \"SET BROWSER=none && yarn start\" \"yarn:electron\"",
     "electron": "wait-on tcp:3000 && electron ."
   },
   "eslintConfig": {

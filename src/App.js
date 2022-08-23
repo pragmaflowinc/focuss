@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { TextField, IconButton } from 'ui-neumorphism'
+import { NuTextField } from './components/NuTextField'
+import { NuIconButton } from './components/NuIconButton'
 
 
 import './App.css';
@@ -9,44 +10,44 @@ function clearInput() {
 }
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      todos: [],
-      value: "",
-    };
-  }
-  onChange = (e) => {
-    this.setState({ value: e.target.value });
-  };
-  onAddTask = (e) => {
-    e.preventDefault();
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     todos: [],
+  //     value: "",
+  //   };
+  // }
+  // onChange = (e) => {
+  //   this.setState({ value: e.target.value });
+  // };
+  // onAddTask = (e) => {
+  //   e.preventDefault();
 
-    const obj = {
-      name: this.state.value,
-      id: Date.now(),
-    };
-    if (this.state.value !== "") {
-      this.setState({ todos: this.state.todos.concat(obj) });
-      this.setState({ value: "" });
-    }
-  };
+  //   const obj = {
+  //     name: this.state.value,
+  //     id: Date.now(),
+  //   };
+  //   if (this.state.value !== "") {
+  //     this.setState({ todos: this.state.todos.concat(obj) });
+  //     this.setState({ value: "" });
+  //   }
+  // };
 
-  onDeleteTask = (itemId) => {
-    this.setState({
-      todos: [...this.state.todos].filter((id) => id.id !== itemId),
-    });
-  };
+  // onDeleteTask = (itemId) => {
+  //   this.setState({
+  //     todos: [...this.state.todos].filter((id) => id.id !== itemId),
+  //   });
+  // };
 
 
   render() {
-    const mylist = this.state.todos.map((todo) => (
-      <li className="todo_item">
-        {todo.name}
+    // const mylist = this.state.todos.map((todo) => (
+    //   <li className="todo_item">
+    //     {todo.name}
 
-        <IconButton onClick={() => this.onDeleteTask(todo.id)}>Remove</IconButton>
-      </li>
-    ));
+    //     <NuIconButton onClick={() => this.onDeleteTask(todo.id)} />
+    //   </li>
+    // ));
 
     return (
       <div className="App">
@@ -54,33 +55,18 @@ class App extends Component {
         <header className="App-header">
           <div id="body">
 
-            <div className="row">
+            <div className="row"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                }}>
 
-              <TextField
-                autofocus={true}
-                dark={true}
-                height={80}
-                type="text"
-                className='input' //outter div
-                name='mainInput'
-                placeholder="what's the next focus?"
-                background = "#050505"
-                
+              <NuTextField />
+              <NuIconButton onclick = {clearInput} display="none"/>
 
-
-              />
-              <IconButton
-                dark={true}
-                onClick={clearInput}
-                height={150}
-                width={150}
-                icon="checkbox"
-
-              />
-
-            <div className="row">
+            {/* <div className="row">
               <ul className="todo_wrapper">{mylist}</ul>
-            </div>
+            </div> */}
 
             </div>
           </div>
