@@ -1,3 +1,6 @@
+// import TimerLen from '../src/App'
+
+
 const path = require('path');
 const { app, BrowserWindow } = require('electron');
 const isDev = require('electron-is-dev');
@@ -13,7 +16,6 @@ function createWindow() {
     titleBarStyle: 'hidden', //remove title bar
     titleBarOverlay: false, //remove min/max/close buttons
     maximizable: false, //prevent double-click to mazimize
-    // alwaysOnTop: true,
     webPreferences: {
       nodeIntegration: true,
     },
@@ -21,16 +23,16 @@ function createWindow() {
   });
 
   // window.once('ready-to-show', () => {
-  //   window.show('true')
+  //   window.show()
   // })
 
 
   
   //Always on top -this might not be needed since repeats above. On other hand, might be better implementation for dynamic always on top setting.
-  win.setVisibleOnAllWorkspaces(true, {visibleOnFullScreen:true});
+  // win.setVisibleOnAllWorkspaces(true, {visibleOnFullScreen:true});
   // win.setAlwaysOnTop(true, "normal")
   win.setFullScreenable(false)
-  // win.moveTop()
+  win.moveTop()
 
   // and load the index.html of the app.
   // win.loadFile("index.html");
@@ -46,20 +48,35 @@ function createWindow() {
 
   win.once('ready-to-show', () => {
     win.show()
+    win.moveTop()
   })
 
-  let backOnTop = () => {
-    win.show()
-  } 
   
-  let backOnTopTimer = (_ms) => {
-    setInterval(() => backOnTop, _ms) //in ms
-  }
+let backOnTop = () => {
+  console.log("backontop()")
+  // win.moveTop()
+  // win.show()
+  win.setAlwaysOnTop(true, "floating")
+  win.setAlwaysOnTop(false)
+  // win.focus()
   
-  win.on('blur', (_ms) => { 
-    backOnTopTimer(_ms || 2000)
-  });
+} 
 
+let backOnTopTimer = () => {
+  console.log("backOnToptimer()")
+  return setTimeout(() => backOnTop(), 2000) //in ms
+}
+
+win.on('blur', () => { 
+  console.log("blurred")
+  backOnTopTimer()
+  // setTimeout(() => backOnTop(), 2000) //in ms
+  
+});
+
+win.on('focus', () =>{
+  clearInterval(backOnTopTimer)
+})
 
 }
 
@@ -71,6 +88,8 @@ function createWindow() {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(createWindow);
+let mainWin = BrowserWindow.getAllWindows()[0]
+console.log(`mainWin: ${mainWin}`)
 
 
 

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { NuTextField } from './components/NuTextField'
+import { NuToggle } from './components/NuToggle';
 import { NuIconButton } from './components/NuIconButton'
-import { Countdown } from './components/Timer'
+// import { Countdown } from './components/Timer'
 import './App.css';
 
 
@@ -60,6 +61,7 @@ class App extends Component {
                 }}>
 
               <NuTextField />
+              <NuToggle />
               {/* <NuIconButton onclick = {clearInput} display="none"/> */}
 
             {/* <div className="row">
