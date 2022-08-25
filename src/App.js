@@ -63,11 +63,16 @@ class App extends Component {
               <NuTextField />
               <NuToggle />
               {/* <NuIconButton onclick = {clearInput} display="none"/> */}
-
+              
             {/* <div className="row">
               <ul className="todo_wrapper">{mylist}</ul>
             </div> */}
 
+            </div>
+            <div width="30px">
+              <NuTextField 
+                label = "PopUp again in"
+              />
             </div>
           </div>
         </header>

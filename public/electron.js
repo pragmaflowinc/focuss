@@ -9,6 +9,7 @@ function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
     id: 'main',
+    backgroundColor: '#050505',
     // show: false,
     width: 775,
     height: 150,
@@ -19,6 +20,7 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
     },
+    darkTheme: true
     
   });
 
@@ -59,8 +61,8 @@ let backOnTop = () => {
   // win.show()
   win.setAlwaysOnTop(true, "floating")
   win.setAlwaysOnTop(false)
-  win.moveTop();
-  win.show();
+  win.moveTop()
+  win.show()
   win.focus()
   
 } 

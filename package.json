@@ -1,6 +1,6 @@
 {
   "name": "focuss",
-  "description": "a compass for online productivity",
+  "description": "Focuss",
   "author": "Mitch Schwartz",
   "version": "0.1.0",
   "private": true,
@@ -54,7 +54,7 @@
     "wait-on": "^6.0.1"
   },
   "build": {
-    "appId": "com.electron.app",
+    "appId": "com.focuss.app",
     "win": {
       "target": "portable"
     },
@@ -62,7 +62,7 @@
       "unicode": false,
       "artifactName": "focuss"
     },
-    "icon": "./public/logo512.png",
+    "icon": "./public/favicon.ico",
     "target": "node"
   }
 }
