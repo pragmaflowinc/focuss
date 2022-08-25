@@ -51,6 +51,7 @@ function createWindow() {
     win.moveTop()
   })
 
+
   
 let backOnTop = () => {
   console.log("backontop()")
@@ -58,7 +59,9 @@ let backOnTop = () => {
   // win.show()
   win.setAlwaysOnTop(true, "floating")
   win.setAlwaysOnTop(false)
-  // win.focus()
+  win.moveTop();
+  win.show();
+  win.focus()
   
 } 
 

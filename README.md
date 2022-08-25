@@ -79,3 +79,6 @@ https://www.electronjs.org/docs/latest/api/browser-window#winsetalwaysontopflag-
 
 ### Build
 yarn electron-builder -wml (windows/mac/linux)
+
+### Minimize to Tray, Windows
+https://medium.com/@onur.polattimur/electron-frameless-window-close-and-minimize-to-tray-5bab47f66f82
