@@ -1,4 +1,4 @@
-// import TimerLen from '../src/App'
+// import PopUpTimer from '../src/components/TimerField'
 
 
 const path = require('path');
@@ -69,7 +69,8 @@ let backOnTop = () => {
 
 let backOnTopTimer = () => {
   console.log("backOnToptimer()")
-  return setTimeout(() => backOnTop(), 2000) //in ms
+  let PopUpTimer = win.document.getElementById('timerField')
+  return setTimeout(() => backOnTop(), PopUpTimer || 18000) //in ms
 }
 
 win.on('blur', () => { 

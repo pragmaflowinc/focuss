@@ -70,9 +70,12 @@ class App extends Component {
 
             </div>
             <div width="30px">
+              <label>"PopUp again in"
+                
               <NuTextField 
-                label = "PopUp again in"
+                
               />
+              </label>
             </div>
           </div>
         </header>
