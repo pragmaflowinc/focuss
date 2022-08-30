@@ -10,10 +10,11 @@ export function NuTextField(props) {
       return <TextField
         autofocus={true}
         dark= {true}
-        height={80}
+        height= {props.height}
+        width= {props.width}
         type="text"
         className='input' //outter div
-        name='mainInput'
+        name={props.name}
         placeholder="what's the next focus?"
         margin-top="auto"
         margin-bottom="auto"

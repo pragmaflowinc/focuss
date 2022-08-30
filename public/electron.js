@@ -55,34 +55,34 @@ function createWindow() {
 
 
   
-let backOnTop = () => {
-  console.log("backontop()")
-  // win.moveTop()
-  // win.show()
-  win.setAlwaysOnTop(true, "floating")
-  win.setAlwaysOnTop(false)
-  win.moveTop()
-  win.show()
-  win.focus()
+// let backOnTop = () => {
+//   console.log("backontop()")
+//   // win.moveTop()
+//   // win.show()
+//   win.setAlwaysOnTop(true, "floating")
+//   win.setAlwaysOnTop(false)
+//   win.moveTop()
+//   win.show()
+//   win.focus()
   
-} 
+// } 
 
-let backOnTopTimer = () => {
-  console.log("backOnToptimer()")
-  let PopUpTimer = win.document.getElementById('timerField')
-  return setTimeout(() => backOnTop(), PopUpTimer || 18000) //in ms
-}
+// let backOnTopTimer = () => {
+//   console.log("backOnToptimer()")
+//   let PopUpTimer = win.document.getElementById('timerField')
+//   return setTimeout(() => backOnTop(), PopUpTimer || 18000) //in ms
+// }
 
-win.on('blur', () => { 
-  console.log("blurred")
-  backOnTopTimer()
-  // setTimeout(() => backOnTop(), 2000) //in ms
+// win.on('blur', () => { 
+//   console.log("blurred")
+//   backOnTopTimer()
+//   // setTimeout(() => backOnTop(), 2000) //in ms
   
-});
+// });
 
-win.on('focus', () =>{
-  clearInterval(backOnTopTimer)
-})
+// win.on('focus', () =>{
+//   clearInterval(backOnTopTimer)
+// })
 
 }
 

@@ -60,7 +60,9 @@ class App extends Component {
                 alignItems: 'center',
                 }}>
 
-              <NuTextField />
+              <NuTextField 
+                name="mainInput"
+              />
               <NuToggle />
               {/* <NuIconButton onclick = {clearInput} display="none"/> */}
               
@@ -73,7 +75,7 @@ class App extends Component {
               <label>"PopUp again in"
                 
               <NuTextField 
-                
+                width = {50}  
               />
               </label>
             </div>
