@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NuTextField } from './components/NuTextField'
-import { NuToggle } from './components/NuToggle';
-import { NuIconButton } from './components/NuIconButton'
+// import { NuToggle } from './components/NuToggle';
+// import { NuIconButton } from './components/NuIconButton'
 // import { Countdown } from './components/Timer'
 import './App.css';
 
@@ -54,30 +54,53 @@ class App extends Component {
         <header className="App-header">
           <div id="body">
 
-            <div className="row"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                }}>
+            <div className='row'
+              display='flex'
+              alignItems='center'
+            >
 
-              <NuTextField 
+              <NuTextField
                 name="mainInput"
               />
-              <NuToggle />
-              {/* <NuIconButton onclick = {clearInput} display="none"/> */}
-              
-            {/* <div className="row">
+              {/* <NuToggle /> */}
+              {/* <NuIconButton 
+                    onclick = {clearInput} 
+                    display="none"
+                    className="toggle"
+
+                /> */}
+
+              {/* <div className="row">
               <ul className="todo_wrapper">{mylist}</ul>
             </div> */}
 
             </div>
-            <div width="30px">
-              <label>"PopUp again in"
-                
-              <NuTextField 
-                width = {50}  
-              />
+            <div style={{
+              // paddingLeft:"20px"
+            }}>
+              <label
+                htmlFor='timerTime'
+                style={{
+                  width: "fit-content",
+                  textAlign: "left",
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignContent: 'center',
+                  margin: '4px 12px',
+                }}>
+                  <span>"PopUp again in"</span>
               </label>
+              <NuTextField
+                  id="timerTime"
+                  width="100vh"
+                  height={30}
+                  style={{
+                    width: "fit-content",
+                    textAlign: "left",
+                    // marginLeft: "-40px",
+                  }}
+                />
+
             </div>
           </div>
         </header>

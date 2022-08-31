@@ -14,7 +14,7 @@ class App extends Component {
       '--dark-bg-dark-shadow': '#21252a',
       '--dark-bg-light-shadow': '#313740',
       '--primary': '#8672FB',
-      '--primary-dark': '#4526f9',
+      '--primary-dark': '#282c34',
       '--primary-light': '#c7befd'
     })
   }

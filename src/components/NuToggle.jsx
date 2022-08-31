@@ -10,12 +10,13 @@ export function NuToggle(props) {
       return <ToggleButton
         
         dark= {true}
-        height={80}
-        className='toggle' //outter div
+        height={props.height}
+        className= {props.className} //outter-most div
         name='onTopToggle'
         inputStyles={inputStyles}
-        margin-left = "auto"
-        margin-right = "auto"
+        margin-left= "auto"
+        margin-right= "auto"
+        onclick= {props.onclick}
       />
   }
 

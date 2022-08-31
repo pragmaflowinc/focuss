@@ -9,7 +9,7 @@ function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
     id: 'main',
-    backgroundColor: '#050505',
+    backgroundColor: '#282c34',
     // show: false,
     width: 775,
     height: 150,
@@ -20,7 +20,9 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
     },
-    darkTheme: true
+    darkTheme: true,
+    
+    
     
   });
 

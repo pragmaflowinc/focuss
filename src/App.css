@@ -1,3 +1,6 @@
+
+
+
 .App {
   text-align: center;
 }
@@ -5,8 +8,17 @@
 #root {
   text-align: center;
   width: 100%;
-  margin-left : "auto";
-  margin-right : "auto";
+  /* Ui-Neumorphism Theme
+      '--light-bg': '#E9B7B9',
+      '--light-bg-dark-shadow': '#ba9294',
+      '--light-bg-light-shadow': '#ffdcde',
+      '--dark-bg': '#292E35',
+      '--primary': '#8672FB',
+      '--primary-light': '#c7befd' 
+      
+      --primary-dark: #282c34;*/
+      --dark-bg-dark-shadow: #21252a;
+      --dark-bg-light-shadow: #313740;
 }
 
 html {
@@ -18,7 +30,8 @@ html {
 
 body {
   background-color: #282c34;
-  overflow-x: hidden;
+  overflow: hidden;
+  height: fit-content;
 }
 
 input[name="mainInput"]{
@@ -26,7 +39,13 @@ input[name="mainInput"]{
   width: fit-content;
   min-width: 400px;
   width: fit-content(1280px);
-  height: calc(100% - 40px); /*not working*/
+  /* use padding to control text field height insteal of calcs -Dave */
+  
+}
+
+input[type="text"]{
+  background-color: #282c34;
+
 }
 
 
