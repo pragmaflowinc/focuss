@@ -16,7 +16,7 @@ export function NuTextField(props) {
         type="text"
         className='input' //outter div
         name={props.name}
-        placeholder="what's the next focus?"
+        placeholder={props.placeholder}
         inputStyles={inputStyles}
         margin-left = "auto"
         margin-right = "auto"

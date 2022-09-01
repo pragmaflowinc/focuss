@@ -61,6 +61,7 @@ class App extends Component {
 
               <NuTextField
                 name="mainInput"
+                placeholder="what's the next focus?"
               />
               {/* <NuToggle /> */}
               {/* <NuIconButton 

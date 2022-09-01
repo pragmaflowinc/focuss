@@ -76,7 +76,7 @@ Fixes react-scripts missing permission issues on yarn/npm start
 https://www.electronjs.org/docs/latest/api/browser-window#winsetalwaysontopflag-level-relativelevel
 
 ### Build
-yarn electron-builder -wml (windows/mac/linux)
+yarn electron-builder build 
 
 ### Minimize to Tray, Windows
 https://medium.com/@onur.polattimur/electron-frameless-window-close-and-minimize-to-tray-5bab47f66f82
