@@ -60,7 +60,7 @@
     },
     "portable": {
       "unicode": false,
-      "artifactName": "focuss"
+      "artifactName": "focuss.exe"
     },
     "icon": "./public/favicon.ico",
     "target": "node"

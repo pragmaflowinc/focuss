@@ -21,7 +21,7 @@ function createWindow() {
       nodeIntegration: true,
     },
     darkTheme: true,
-    
+    movable: true
     
     
   });
