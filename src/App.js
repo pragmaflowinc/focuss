@@ -55,13 +55,14 @@ class App extends Component {
           <div id="body">
 
             <div className='row'
-              display='flex'
               alignItems='center'
             >
 
               <NuTextField
                 name="mainInput"
                 placeholder="what's the next focus?"
+                
+                
               />
               {/* <NuToggle /> */}
               {/* <NuIconButton 
@@ -76,7 +77,7 @@ class App extends Component {
             </div> */}
 
             </div>
-            <div style={{
+            {/* <div style={{
               // paddingLeft:"20px"
             }}>
               <label
@@ -102,7 +103,7 @@ class App extends Component {
                   }}
                 />
 
-            </div>
+            </div> */}
           </div>
         </header>
 

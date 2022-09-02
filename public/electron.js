@@ -1,9 +1,11 @@
 // import PopUpTimer from '../src/components/TimerField'
 
 
+// require('v8-compile-cache');
 const path = require('path');
 const { app, BrowserWindow } = require('electron');
 const isDev = require('electron-is-dev');
+
 
 function createWindow() {
   // Create the browser window.
@@ -21,13 +23,13 @@ function createWindow() {
       nodeIntegration: true,
     },
     darkTheme: true,
-    movable: true
     
     
   });
 
-  // window.once('ready-to-show', () => {
-  //   window.show()
+  // I think this 👇🏽 is copy pasta for graceful loading
+  // win.once('ready-to-show', () => {
+  //   win.show()
   // })
 
 
@@ -39,14 +41,14 @@ function createWindow() {
   win.moveTop()
 
   // and load the index.html of the app.
-  // win.loadFile("index.html");
+  win.loadFile("index.html");
   win.loadURL(
     isDev
       ? 'http://localhost:3000'
       : `file://${path.join(__dirname, '../build/index.html')}`
   );
   // Open the DevTools.
-  if (isDev) {
+  if (true) { //isdev
     win.webContents.openDevTools({ mode: 'detach' });
   }
 
@@ -55,6 +57,13 @@ function createWindow() {
     win.moveTop()
   })
 
+//   win.webContents.openDevTools();
+//   win.webContents.on('devtools-opened', () => {
+//       setImmediate(() => {
+//           // do whatever you want to do after dev tool completely opened here
+//           win.focus();
+//       });
+// });
 
   
 // let backOnTop = () => {
@@ -96,8 +105,8 @@ function createWindow() {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(createWindow);
-let mainWin = BrowserWindow.getAllWindows()[0]
-console.log(`mainWin: ${mainWin}`)
+// let mainWin = BrowserWindow.getAllWindows()[0]
+// console.log(`mainWin: ${mainWin}`)
 
 
 
