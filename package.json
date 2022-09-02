@@ -20,7 +20,7 @@
     "web-vitals": "^2.1.4",
     "yarn": "^1.22.19"
   },
-  "main": "public/electron.js",
+  "main": "./public/electron.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
