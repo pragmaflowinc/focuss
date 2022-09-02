@@ -52,7 +52,7 @@ class App extends Component {
       <div className="App">
 
         <header className="App-header">
-          <div id="body">
+          <div id="body" className="column">
 
             <div className='row'
               alignItems='center'
@@ -60,7 +60,7 @@ class App extends Component {
 
               <NuTextField
                 name="mainInput"
-                placeholder="what's the next focus?"
+                placeholder="what's the next focus?"                
                 
                 
               />

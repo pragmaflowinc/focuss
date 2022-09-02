@@ -47,11 +47,10 @@ body {
 input[name="mainInput"]{
   min-height: 100px;
   font-size: 54px;
-  width: 100%;
   min-width: 400px;
   width: 100%;
   flex-grow: 1;
-  margin: auto;
+  
   /* use padding to control text field height insteal of calcs -Dave */
   
 }
@@ -62,7 +61,13 @@ input[name="mainInput"]{
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
 
+.column {
+  display: 'flex';
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
 }
 
 
