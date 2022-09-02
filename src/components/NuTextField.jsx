@@ -20,6 +20,8 @@ export function NuTextField(props) {
         inputStyles={inputStyles}
         margin-left = "auto"
         margin-right = "auto"
+        
+
       />
   }
 

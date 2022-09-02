@@ -28,19 +28,22 @@ html {
   
 }
 
+/* * {
+  width: 100%;
+} */
+
 body {
   background-color: #282c34;
   overflow: hidden;
   height: fit-content;
+  padding: 3px 10px 3px 10px;
+
 }
 
 #body {
   width: 100%;
   margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+   
 
 }
 
@@ -49,18 +52,21 @@ input[name="mainInput"]{
   font-size: 54px;
   min-width: 400px;
   width: 100%;
-  flex-grow: 1;
+  display: inline-block !important;
+ 
   
   /* use padding to control text field height insteal of calcs -Dave */
   
 }
 
 .row {
-  display: 'flex';
+ 
   width: 100%;
+  display: 'flex';
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  flex-grow: 1;
 }
 
 .column {
@@ -68,6 +74,8 @@ input[name="mainInput"]{
   width: 100%;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  
 }
 
 
@@ -75,7 +83,6 @@ input[type="text"]{
   background-color: #282c34;
 
 }
-
 
 
 .App-logo {
