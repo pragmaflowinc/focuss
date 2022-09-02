@@ -81,5 +81,5 @@ yarn electron-builder build
 ### Minimize to Tray, Windows
 https://medium.com/@onur.polattimur/electron-frameless-window-close-and-minimize-to-tray-5bab47f66f82
 
-###
-UI-Neumorphism Library: https://akaspanion.github.io/ui-neumorphism/ /  https://www.npmjs.com/package/ui-neumorphism
+### UI-Neumorphism Library 
+https://akaspanion.github.io/ui-neumorphism/ /  https://www.npmjs.com/package/ui-neumorphism

@@ -28,7 +28,10 @@
     "eject": "react-scripts eject",
     "devLin": "concurrently -k \"BROWSER=none yarn start\" \"yarn:electron\"",
     "dev": "concurrently -k \"react-scripts start\" \"yarn:electron\"",
-    "electron": "wait-on tcp:3000 && electron ."
+    "electron": "wait-on tcp:3000 && electron .",
+    "electron:package:mac": "electron-builder -m -c.extraMetadata.main=build/electron.js",
+    "electron:package:win": "electron-builder -w -c.extraMetadata.main=build/electron.js",
+    "electron:package:linux": "electron-builder -l -c.extraMetadata.main=build/electron.js"
   },
   "eslintConfig": {
     "extends": [
