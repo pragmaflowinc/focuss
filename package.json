@@ -66,7 +66,7 @@
       "unicode": false,
       "artifactName": "focuss.exe"
     },
-    "icon": "./public/favicon.ico",
+    "icon": "./public/favicon.png",
     "target": "node"
   }
 }
