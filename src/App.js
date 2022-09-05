@@ -49,7 +49,7 @@ class App extends Component {
     // ));
 
     return (
-      <div className="App">
+      <div className="App" border-radius="500px">
 
         <header className="App-header">
           <div id="body" className="column">

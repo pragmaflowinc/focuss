@@ -55,7 +55,9 @@
     "concurrently": "^7.3.0",
     "electron": "^20.0.3",
     "electron-builder": "^23.3.3",
-    "wait-on": "^6.0.1"
+    "wait-on": "^6.0.1",
+    "cross-var": "1.1.0",
+    "dotenv-cli": "3.0.0"
   },
   "build": {
     "appId": "com.focuss.app",

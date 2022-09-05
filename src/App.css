@@ -8,7 +8,7 @@
 #root {
   text-align: center;
   width: 100%;
-  /* Ui-Neumorphism Theme
+       /* Ui-Neumorphism Theme
       '--light-bg': '#E9B7B9',
       '--light-bg-dark-shadow': '#ba9294',
       '--light-bg-light-shadow': '#ffdcde',
@@ -16,9 +16,11 @@
       '--primary': '#8672FB',
       '--primary-light': '#c7befd' 
       
-      --primary-dark: #282c34;*/
+      --primary-dark: #282c34;
+      */
       --dark-bg-dark-shadow: #21252a;
       --dark-bg-light-shadow: #313740;
+
 }
 
 html {

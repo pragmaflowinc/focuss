@@ -11,18 +11,22 @@ function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
     id: 'main',
-    backgroundColor: '#282c34',
+    // backgroundColor: '#282c34',
     // show: false,
     width: 775,
     height: 150,
     frame: false, //remove window frame
-    titleBarStyle: 'hidden', //remove title bar
+    titleBarStyle: 'customButtonsOnHover', //mac buttons mod
+    // titleBarStyle: 'hidden', //remove title bar in windows
+    
     titleBarOverlay: false, //remove min/max/close buttons
     maximizable: false, //prevent double-click to mazimize
     webPreferences: {
       nodeIntegration: true,
     },
     darkTheme: true,
+    transparent: true,
+    
     
     
   });
