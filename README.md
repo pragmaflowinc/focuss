@@ -84,12 +84,5 @@ https://medium.com/@onur.polattimur/electron-frameless-window-close-and-minimize
 ### UI-Neumorphism Library 
 https://akaspanion.github.io/ui-neumorphism/ /  https://www.npmjs.com/package/ui-neumorphism
 
-### Sign on Mac (outside apple store) - pack your app and sign it both at once
-electron-packager . "FocusS" --platform=darwin --arch=x64 --version --app-bundle-id="com.pragmaflow.focuss --app-version="0.0.1" --build-version="1.0.100" --icon=="./build/favicon.png" --osx-sign
-
-### Sign on Mac (apple store) - pack your app and sign it both at once
-electron-packager . "FocusS" --platform=mas --arch=x64 --version="0.35.6" --app-bundle-id=com.pragmaflow.focuss --helper-bundle-id=com.pragmaflow.focuss --app-version="1.0.0" --build-version="1.0.100" --icon=="./build/favicon.png" --osx-sign 
-
-then
-
-electron-osx-sign "FocusS-mas-x6/FocusS.app" --verbose
+### Easily make ICNS from a 1024x1024 png
+https://www.codingforentrepreneurs.com/blog/create-icns-icons-for-macos-apps/
