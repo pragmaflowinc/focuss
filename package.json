@@ -67,6 +67,10 @@
     "win": {
       "target": "portable"
     },
+    "mac": {
+      "icon": "./public/icons/mac/icon.icns",
+      "category": "public.app-category.utilities"
+    },
     "portable": {
       "unicode": false,
       "artifactName": "focuss.exe"
