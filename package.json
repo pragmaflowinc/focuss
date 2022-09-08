@@ -8,6 +8,7 @@
     "cra-template": "1.2.0",
     "docker": "^1.0.0",
     "electron-is-dev": "^2.0.0",
+    "electron-packager": "^16.0.0",
     "npm": "^8.18.0",
     "path": "^0.12.7",
     "react": "^18.2.0",
@@ -31,7 +32,8 @@
     "electron": "wait-on tcp:3000 && electron .",
     "electron:build:mac": "electron-builder -m -c.extraMetadata.main=build/electron.js",
     "electron:build:win": "electron-builder -w -c.extraMetadata.main=build/electron.js",
-    "electron:build:linux": "electron-builder -l -c.extraMetadata.main=build/electron.js"
+    "electron:build:linux": "electron-builder -l -c.extraMetadata.main=build/electron.js",
+    "electron:build:macStore": "electron-packager . 'FocusS' --platform=mas --arch=x64 --electron-version='0.35.6' --app-bundle-id=com.pragmaflow.focuss --helper-bundle-id=com.pragmaflow.focuss --app-version='1.0.0' --build-version='1.0.100' --icon=='./build/favicon.png' --ignore='dist/'  --osx-sign --overwrite"
   },
   "eslintConfig": {
     "extends": [
@@ -53,11 +55,11 @@
   },
   "devDependencies": {
     "concurrently": "^7.3.0",
+    "cross-var": "1.1.0",
+    "dotenv-cli": "3.0.0",
     "electron": "^20.0.3",
     "electron-builder": "^23.3.3",
-    "wait-on": "^6.0.1",
-    "cross-var": "1.1.0",
-    "dotenv-cli": "3.0.0"
+    "wait-on": "^6.0.1"
   },
   "build": {
     "appId": "com.focuss.app",
