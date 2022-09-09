@@ -39,15 +39,15 @@
     "electron:build:win": "electron-builder -w -c.extraMetadata.main=build/electron.js",
     "electron:build:linux": "electron-builder -l -c.extraMetadata.main=build/electron.js",
     
-    "electron:build:macstore": "electron-packager . 'FocusS' --app-version='1.0.0' --build-version='1.0.101' --platform=mas --arch=x64 --electron-version='0.35.6' --app-bundle-id=com.pragmaflow.focuss --helper-bundle-id=com.pragmaflow.focuss --icon='./build/favicon.icns' --ignore='dist/' --overwrite --osx-sign &&  electron-osx-flat './FocusS-mas-x64/FocusS.app' --verbose",
+    "electron:build:macstore": "electron-packager . 'FocusS' --app-version='1.0.1' --build-version='1.0.102' --platform=mas --arch=x64 --electron-version='0.35.6' --app-bundle-id=com.pragmaflow.focuss --helper-bundle-id=com.pragmaflow.focuss --icon='./build/favicon.icns' --ignore='dist/' --overwrite --osx-sign &&  electron-osx-flat './FocusS-mas-x64/FocusS.app' --verbose",
 
     "electron:sign:macstore": "electron-osx-sign './FocusS-mas-x64/FocusS.app' --verbose",
     "electron:flat": "electron-osx-flat './FocusS-mas-x64/FocusS.app' --verbose",
     
     "validate:mac": "xcrun altool --validate-app --type=macos --file=./FocusS-mas-x64/FocusS.pkg --apiKey=J848GY4LHX --apiIssuer=748e6f85-abef-4f98-b404-623333d78336",
-    "upload:mac": "--type=macos --file=./FocusS-mas-x64/FocusS.pkg --apiKey=J848GY4LHX --apiIssuer=748e6f85-abef-4f98-b404-623333d78336",
+    "upload:mac": "xcrun altool --upload-app --type=macos --file=./FocusS-mas-x64/FocusS.pkg --apiKey=J848GY4LHX --apiIssuer=748e6f85-abef-4f98-b404-623333d78336",
     
-    "electron:fbld:mac":"yarn build && yarn electron:build:macstore && yarn validate:mac"
+    "flbld:mac":"yarn build && yarn electron:build:macstore && yarn upload:mac"
     
     
   },
