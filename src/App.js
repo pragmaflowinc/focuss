@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { NuTextField } from './components/NuTextField'
 // import { NuToggle } from './components/NuToggle';
 // import { NuIconButton } from './components/NuIconButton'
