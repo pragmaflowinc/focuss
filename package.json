@@ -37,9 +37,9 @@
     "dev:nA": "concurrently -k \"react-scripts start\" \"yarn:electron --noAnalytics\"",
     "electron": "wait-on tcp:3000 && electron .",
     
-    "electron:build:mac": "electron-builder -m -c.extraMetadata.main=build/electron.js",
-    "electron:build:win": "electron-builder -w -c.extraMetadata.main=build/electron.js",
-    "electron:build:linux": "electron-builder -l -c.extraMetadata.main=build/electron.js",
+    "electron:build:mac": "yarn build && electron-builder -m -c.extraMetadata.main=build/electron.js",
+    "electron:build:win": "yarn build && electron-builder -w -c.extraMetadata.main=build/electron.js",
+    "electron:build:linux": "yarn build && electron-builder -l -c.extraMetadata.main=build/electron.js",
 
     "electron:build:macstore": "electron-builder --macos",
     
