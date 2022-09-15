@@ -1,9 +1,10 @@
 {
   "name": "focuss",
-  "description": "Focuss",
+  "description": "FocusS",
   "author": "Mitch Schwartz",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "private": true,
+  "provisioning": "Apple Distribution",
   "dependencies": {
     "cra-template": "1.2.0",
     "docker": "^1.0.0",
@@ -39,16 +40,18 @@
     "electron:build:mac": "electron-builder -m -c.extraMetadata.main=build/electron.js",
     "electron:build:win": "electron-builder -w -c.extraMetadata.main=build/electron.js",
     "electron:build:linux": "electron-builder -l -c.extraMetadata.main=build/electron.js",
-    
-    "electron:build:macstore": "electron-packager . 'FocusS' --app-version='1.0.1' --build-version='1.0.102' --platform=mas --arch=x64 --electron-version='0.35.6' --app-bundle-id=com.pragmaflow.focuss --helper-bundle-id=com.pragmaflow.focuss --icon='./build/favicon.icns' --ignore='dist/' --overwrite --osx-sign &&  electron-osx-flat './FocusS-mas-x64/FocusS.app' --verbose",
 
-    "electron:sign:macstore": "electron-osx-sign './FocusS-mas-x64/FocusS.app' --verbose",
-    "electron:flat": "electron-osx-flat './FocusS-mas-x64/FocusS.app' --verbose",
+    "electron:build:macstore": "electron-builder --macos",
     
-    "validate:mac": "xcrun altool --validate-app --type=macos --file=./FocusS-mas-x64/FocusS.pkg --apiKey=J848GY4LHX --apiIssuer=748e6f85-abef-4f98-b404-623333d78336",
-    "upload:mac": "xcrun altool --upload-app --type=macos --file=./FocusS-mas-x64/FocusS.pkg --apiKey=J848GY4LHX --apiIssuer=748e6f85-abef-4f98-b404-623333d78336",
+    "electron:build:macstore-old": "electron-packager . 'FocusS' --app-version='1.0.1' --build-version='1.0.106' --platform=mas --arch=x64 --app-bundle-id=com.pragmaflow.focuss --helper-bundle-id=com.pragmaflow.focuss --icon='./build/favicon.icns' --ignore='dist/' --overwrite --osx-sign --out ./dist/mas &&  electron-osx-flat './dist/mas/FocusS.app' --verbose",
+
+    "sign:macstore": "electron-osx-sign './dist/mas/FocusS.app' --entitlements=./build/entitlements.plist --verbose",
+    "flat:macstore": "electron-osx-flat './dist/mas/FocusS.app' --verbose",
     
-    "flbld:mac":"yarn build && yarn electron:build:macstore && yarn upload:mac"
+    "validate:mac": "xcrun altool --validate-app --type=macos --file=./dist/mas/FocusS.pkg --apiKey=J848GY4LHX --apiIssuer=748e6f85-abef-4f98-b404-623333d78336",
+    "upload:mac": "xcrun altool --upload-app --type=macos --file=./dist/mas/FocusS.pkg --apiKey=J848GY4LHX --apiIssuer=748e6f85-abef-4f98-b404-623333d78336",
+    
+    "flbld:mac":"yarn build && yarn electron:build:macstore-old && yarn upload:mac"
     
     
   },
@@ -80,19 +83,29 @@
     "wait-on": "^6.0.1"
   },
   "build": {
-    "appId": "com.focuss.app",
+    "appId": "com.pragmaflow.focuss",
+    "productName": "FocusS",
+    "buildVersion": "1.0.105",
+    "artifactName": "FocusS.pkg",
+
+    "mac":{
+      "target": "mas"
+    },
+
     "win": {
-      "target": "portable"
+      "target": "portable",
+      "icon": "./public/favicon.png"
     },
-    "mac": {
-      "icon": "./public/icons/mac/icon.icns",
-      "category": "public.app-category.utilities"
+
+    "nsis": {
+      "artifactName": "FocusS"
     },
+  
     "portable": {
       "unicode": false,
       "artifactName": "focuss.exe"
     },
-    "icon": "./public/favicon.png",
+
     "target": "node"
   }
 }
