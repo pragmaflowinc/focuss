@@ -1,14 +1,18 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { NuTextField } from './components/NuTextField'
 // import { NuToggle } from './components/NuToggle';
 // import { NuIconButton } from './components/NuIconButton'
 // import { Countdown } from './components/Timer'
 import './App.css';
+import gtag, { install } from 'ga-gtag';
+
+const { ipcRenderer } = window.require('electron');
 
 
 
 
-class App extends Component {
+
+function App() {
   // constructor() {
   //   super();
   //   this.state = {
@@ -39,47 +43,72 @@ class App extends Component {
   // };
 
 
-  render() {
-    // const mylist = this.state.todos.map((todo) => (
-    //   <li className="todo_item">
-    //     {todo.name}
 
-    //     <NuIconButton onClick={() => this.onDeleteTask(todo.id)} />
-    //   </li>
-    // ));
 
-    return (
-      <div className="App" border-radius="500px">
 
-        <header className="App-header">
-          <div id="body" className="column">
+  // const mylist = this.state.todos.map((todo) => (
+  //   <li className="todo_item">
+  //     {todo.name}
 
-            <div className='row'>
+  //     <NuIconButton onClick={() => this.onDeleteTask(todo.id)} />
+  //   </li>
+  // ));
 
-              <NuTextField
-                name="mainInput"
-                placeholder="What's the next focus?"
-                styles = {{
-                    display: "block",
-                    margin: 0,
-                }}                
-                
-                
-              />
-              {/* <NuToggle /> */}
-              {/* <NuIconButton 
+
+
+  useEffect(() => {
+    // Listen for the event
+    ipcRenderer.send('get_data', {})
+    
+    ipcRenderer.on('get_data', (event, arg) => {
+      console.log(arg);
+      install('G-09R2LJ5F94');
+      gtag('event', 'AppOpened', {
+        'app_name': 'FocusS',
+        'screen_name': 'Home'
+      });
+
+
+    });
+    // Clean the listener after the component is dismounted
+    return () => {
+      ipcRenderer.removeAllListeners();
+    };
+  }, []);
+
+
+  return (
+    <div className="App" border-radius="500px">
+
+      <header className="App-header">
+        <div id="body" className="column">
+
+          <div className='row'>
+
+            <NuTextField
+              name="mainInput"
+              placeholder="What's the next focus?"
+              styles={{
+                display: "block",
+                margin: 0,
+              }}
+
+
+            />
+            {/* <NuToggle /> */}
+            {/* <NuIconButton 
                     onclick = {clearInput} 
                     display="none"
                     className="toggle"
 
                 /> */}
 
-              {/* <div className="row">
+            {/* <div className="row">
               <ul className="todo_wrapper">{mylist}</ul>
             </div> */}
 
-            </div>
-            {/* <div style={{
+          </div>
+          {/* <div style={{
               // paddingLeft:"20px"
             }}>
               <label
@@ -106,12 +135,12 @@ class App extends Component {
                 />
 
             </div> */}
-          </div>
-        </header>
+        </div>
+      </header>
 
-      </div>
-    );
-  }
+    </div>
+  );
 }
+
 
 export default App;

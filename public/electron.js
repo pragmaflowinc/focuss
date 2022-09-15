@@ -3,32 +3,33 @@
 
 // require('v8-compile-cache');
 const path = require('path');
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const isDev = require('electron-is-dev');
+
 
 
 function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
     id: 'main',
-    // backgroundColor: '#282c34',
     // show: false,
     width: 775,
     height: 150,
     frame: false, //remove window frame
     titleBarStyle: 'customButtonsOnHover', //mac buttons mod
     // titleBarStyle: 'hidden', //remove title bar in windows
-    
+
     titleBarOverlay: false, //remove min/max/close buttons
     maximizable: false, //prevent double-click to mazimize
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: false,
     },
     darkTheme: true,
     transparent: true,
-    
-    
-    
+
+
+
   });
 
   // I think this 👇🏽 is copy pasta for graceful loading
@@ -37,7 +38,7 @@ function createWindow() {
   // })
 
 
-  
+
   //Always on top -this might not be needed since repeats above. On other hand, might be better implementation for dynamic always on top setting.
   // win.setVisibleOnAllWorkspaces(true, {visibleOnFullScreen:true});
   // win.setAlwaysOnTop(true, "normal")
@@ -61,43 +62,43 @@ function createWindow() {
     win.moveTop()
   })
 
-//   win.webContents.openDevTools();
-//   win.webContents.on('devtools-opened', () => {
-//       setImmediate(() => {
-//           // do whatever you want to do after dev tool completely opened here
-//           win.focus();
-//       });
-// });
+  //   win.webContents.openDevTools();
+  //   win.webContents.on('devtools-opened', () => {
+  //       setImmediate(() => {
+  //           // do whatever you want to do after dev tool completely opened here
+  //           win.focus();
+  //       });
+  // });
 
-  
-// let backOnTop = () => {
-//   console.log("backontop()")
-//   // win.moveTop()
-//   // win.show()
-//   win.setAlwaysOnTop(true, "floating")
-//   win.setAlwaysOnTop(false)
-//   win.moveTop()
-//   win.show()
-//   win.focus()
-  
-// } 
 
-// let backOnTopTimer = () => {
-//   console.log("backOnToptimer()")
-//   let PopUpTimer = win.document.getElementById('timerField')
-//   return setTimeout(() => backOnTop(), PopUpTimer || 18000) //in ms
-// }
+  // let backOnTop = () => {
+  //   console.log("backontop()")
+  //   // win.moveTop()
+  //   // win.show()
+  //   win.setAlwaysOnTop(true, "floating")
+  //   win.setAlwaysOnTop(false)
+  //   win.moveTop()
+  //   win.show()
+  //   win.focus()
 
-// win.on('blur', () => { 
-//   console.log("blurred")
-//   backOnTopTimer()
-//   // setTimeout(() => backOnTop(), 2000) //in ms
-  
-// });
+  // } 
 
-// win.on('focus', () =>{
-//   clearInterval(backOnTopTimer)
-// })
+  // let backOnTopTimer = () => {
+  //   console.log("backOnToptimer()")
+  //   let PopUpTimer = win.document.getElementById('timerField')
+  //   return setTimeout(() => backOnTop(), PopUpTimer || 18000) //in ms
+  // }
+
+  // win.on('blur', () => { 
+  //   console.log("blurred")
+  //   backOnTopTimer()
+  //   // setTimeout(() => backOnTop(), 2000) //in ms
+
+  // });
+
+  // win.on('focus', () =>{
+  //   clearInterval(backOnTopTimer)
+  // })
 
 }
 
@@ -129,5 +130,14 @@ app.on('activate', () => {
   }
 });
 
+if (process.argv.includes('--noAnalytics')) {
+  console.log('no analytics');
 
+} else {
 
+  // console.log('analytics');
+  ipcMain.on('get_data', (event, arg) => {
+    event.sender.send('get_data', 'analytics')
+    console.log('analytics')
+  })
+}
