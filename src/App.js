@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import React, { useEffect } from 'react';
-=======
-import React, { Component } from 'react'
->>>>>>> a415edb6f085feb6296c1ab6233f25eaa4463b64
 import { NuTextField } from './components/NuTextField'
 // import { NuToggle } from './components/NuToggle';
 // import { NuIconButton } from './components/NuIconButton'
