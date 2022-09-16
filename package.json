@@ -106,6 +106,7 @@
       "artifactName": "focuss.exe"
     },
 
-    "target": "node"
+    "target": "node",
+    "icon": "./build/favicon.icns"
   }
 }
