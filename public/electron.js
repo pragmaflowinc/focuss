@@ -5,7 +5,7 @@
 const path = require('path');
 const { app, BrowserWindow, ipcMain } = require('electron');
 const isDev = require('electron-is-dev');
-
+const { trackEvent } = require('../src/analytics');
 
 
 function createWindow() {
@@ -106,6 +106,9 @@ function createWindow() {
 //   document.getElementsByName('mainInput')[0].setState({ value: "" })
 // }
 
+
+ 
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
@@ -137,7 +140,11 @@ if (process.argv.includes('--noAnalytics')) {
 
   // console.log('analytics');
   ipcMain.on('get_data', (event, arg) => {
-    event.sender.send('get_data', 'analytics')
-    console.log('analytics')
+    // event.sender.send('get_data', 'analytics')
+    // console.log('analytics')
+    trackEvent('event', 'AppOnline');
   })
 }
+
+global.trackEvent = trackEvent;
+// 

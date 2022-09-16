@@ -4,7 +4,7 @@ import { NuTextField } from './components/NuTextField'
 // import { NuIconButton } from './components/NuIconButton'
 // import { Countdown } from './components/Timer'
 import './App.css';
-import gtag, { install } from 'ga-gtag';
+// import gtag, { install } from 'ga-gtag';
 
 const { ipcRenderer } = window.require('electron');
 
@@ -45,7 +45,6 @@ function App() {
 
 
 
-
   // const mylist = this.state.todos.map((todo) => (
   //   <li className="todo_item">
   //     {todo.name}
@@ -54,7 +53,8 @@ function App() {
   //   </li>
   // ));
 
-
+  
+  
 
   useEffect(() => {
     // Listen for the event
@@ -62,11 +62,9 @@ function App() {
     
     ipcRenderer.on('get_data', (event, arg) => {
       console.log(arg);
-      install('G-09R2LJ5F94');
-      gtag('event', 'AppOpened', {
-        'app_name': 'FocusS',
-        'screen_name': 'Home'
-      });
+      
+
+
 
 
     });
