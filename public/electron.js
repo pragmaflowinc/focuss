@@ -5,7 +5,7 @@
 const path = require('path');
 const { app, BrowserWindow, ipcMain } = require('electron');
 const isDev = require('electron-is-dev');
-const { trackEvent } = require('../src/analytics');
+const { trackEvent } = require('./analytics');
 
 
 function createWindow() {
