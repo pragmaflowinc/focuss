@@ -4,7 +4,7 @@ const { v4: uuidv4 } = require('uuid');
 const { JSONStorage } = require('node-localstorage');
 const nodeStorage = new JSONStorage(app.getPath('userData'));
 
-
+//https://kilianvalkhof.com/2018/apps/using-google-analytics-to-gather-usage-statistics-in-electron/
 
 // Retrieve the userid value, and if it's not there, assign it a new uuid.
 const userId = nodeStorage.getItem('userid') || uuidv4();
