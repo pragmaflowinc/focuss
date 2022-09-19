@@ -18,8 +18,8 @@ function createWindow() {
     frame: false, //remove window frame
     titleBarStyle: 'customButtonsOnHover', //mac buttons mod
     // titleBarStyle: 'hidden', //remove title bar in windows
-
     titleBarOverlay: false, //remove min/max/close buttons
+    hasShadow: true, //remove shadow
     maximizable: false, //prevent double-click to mazimize
     webPreferences: {
       nodeIntegration: true,
