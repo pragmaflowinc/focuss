@@ -2,7 +2,7 @@
   "name": "focuss",
   "description": "FocusS",
   "author": "Mitch Schwartz",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "provisioning": "Apple Distribution",
   "dependencies": {
