@@ -17,12 +17,11 @@ export function NuTextField(props) {
         className='input' //outter div
         name={props.name}
         placeholder={props.placeholder}
-        inputStyles={inputStyles}
-        margin-left = "auto"
-        margin-right = "auto"
+        inputStyles={inputStyles}      
         
 
       />
   }
 
+  
 

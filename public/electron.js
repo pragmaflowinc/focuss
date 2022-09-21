@@ -40,11 +40,10 @@ function createWindow() {
   //   win.show()
   // })
 
-
-
   //Always on top -this might not be needed since repeats above. On other hand, might be better implementation for dynamic always on top setting.
   // win.setVisibleOnAllWorkspaces(true, {visibleOnFullScreen:true});
   // win.setAlwaysOnTop(true, "normal")
+
   win.setFullScreenable(false)
   win.moveTop()
 
@@ -105,9 +104,6 @@ function createWindow() {
 
 }
 
-// let clearInput = () => {
-//   document.getElementsByName('mainInput')[0].setState({ value: "" })
-// }
 
 
  
