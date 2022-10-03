@@ -1,14 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NuTextField } from './components/NuTextField'
 // import { NuToggle } from './components/NuToggle';
+import { NuSwitch } from './components/NuSwitch';
 // import { NuIconButton } from './components/NuIconButton'
 // import { Countdown } from './components/Timer'
 import './App.css';
-// import gtag, { install } from 'ga-gtag';
 
 const { ipcRenderer } = window.require('electron');
 
+//test
 
+// let clearInput = () => {
+//   document.getElementsByName('mainInput')[0].setState({ value: "" })
+// }
 
 
 
@@ -42,9 +46,6 @@ function App() {
   //   });
   // };
 
-
-
-
   // const mylist = this.state.todos.map((todo) => (
   //   <li className="todo_item">
   //     {todo.name}
@@ -53,19 +54,15 @@ function App() {
   //   </li>
   // ));
 
-  
-  
+
+
 
   useEffect(() => {
     // Listen for the event
     ipcRenderer.send('get_data', {})
-    
+
     ipcRenderer.on('get_data', (event, arg) => {
       console.log(arg);
-      
-
-
-
 
     });
     // Clean the listener after the component is dismounted
@@ -74,6 +71,15 @@ function App() {
     };
   }, []);
 
+  const [checked, setChecked] = useState();
+
+    useEffect(() => {
+      // Listen for the event
+      ipcRenderer.send('ToggleAlwaysOnTop', {checked})
+    }, [checked]);
+
+
+ 
 
   return (
     <div className="App" border-radius="500px">
@@ -93,7 +99,29 @@ function App() {
 
 
             />
-            {/* <NuToggle /> */}
+            <div className="buttonRow"
+              margin={0}
+              
+            >
+
+              <NuSwitch
+                label="Always on top"
+                className="alwaysOnTopToggle noDrag"
+                onChange={(e) => { 
+                  console.log(e)
+                  setChecked(e.checked)
+                  console.log(`checked: ${checked}`) 
+                }}
+                disabled={false}
+                checked={checked}
+                styles={{
+                  margin: 0,
+                }}
+
+
+              />
+
+            </div>
             {/* <NuIconButton 
                     onclick = {clearInput} 
                     display="none"

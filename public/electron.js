@@ -6,7 +6,8 @@ const path = require('path');
 const { app, BrowserWindow, ipcMain } = require('electron');
 const isDev = require('electron-is-dev');
 const { trackEvent } = require('./analytics');
-
+const { ToggleAlwaysOnTop, initAlwaysOnTop } = require('./toggleAlwaysOnTop');
+require('update-electron-app')()
 
 function createWindow() {
   // Create the browser window.
@@ -18,8 +19,8 @@ function createWindow() {
     frame: false, //remove window frame
     titleBarStyle: 'customButtonsOnHover', //mac buttons mod
     // titleBarStyle: 'hidden', //remove title bar in windows
-
     titleBarOverlay: false, //remove min/max/close buttons
+    hasShadow: true, //remove shadow
     maximizable: false, //prevent double-click to mazimize
     webPreferences: {
       nodeIntegration: true,
@@ -27,6 +28,10 @@ function createWindow() {
     },
     darkTheme: true,
     transparent: true,
+    node: {
+      fs: 'empty'
+    },
+    alwaysOnTop: initAlwaysOnTop(),
 
 
 
@@ -37,11 +42,10 @@ function createWindow() {
   //   win.show()
   // })
 
-
-
   //Always on top -this might not be needed since repeats above. On other hand, might be better implementation for dynamic always on top setting.
   // win.setVisibleOnAllWorkspaces(true, {visibleOnFullScreen:true});
   // win.setAlwaysOnTop(true, "normal")
+
   win.setFullScreenable(false)
   win.moveTop()
 
@@ -102,9 +106,6 @@ function createWindow() {
 
 }
 
-// let clearInput = () => {
-//   document.getElementsByName('mainInput')[0].setState({ value: "" })
-// }
 
 
  
@@ -138,13 +139,15 @@ if (process.argv.includes('--noAnalytics')) {
 
 } else {
 
-  // console.log('analytics');
   ipcMain.on('get_data', (event, arg) => {
-    // event.sender.send('get_data', 'analytics')
-    // console.log('analytics')
+
     trackEvent('event', 'AppOnline');
   })
 }
 
+//when icp main receives 'ToggleAlwaysOnTop from renderer, it will toggle the window's always on top setting
+ipcMain.on('ToggleAlwaysOnTop', (event, arg) => {
+    ToggleAlwaysOnTop(arg, BrowserWindow.getAllWindows()[0])
+});
+
 global.trackEvent = trackEvent;
-// 
