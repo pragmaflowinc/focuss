@@ -71,9 +71,15 @@ function App() {
     };
   }, []);
 
+  const [checked, setChecked] = useState();
+
+    useEffect(() => {
+      // Listen for the event
+      ipcRenderer.send('ToggleAlwaysOnTop', {checked})
+    }, [checked]);
 
 
-  const [checked, setChecked] = useState(false);
+ 
 
   return (
     <div className="App" border-radius="500px">
@@ -95,13 +101,15 @@ function App() {
             />
             <div className="buttonRow"
               margin={0}
+              
             >
 
               <NuSwitch
                 label="Always on top"
-                className="alwaysOnTopToggle"
+                className="alwaysOnTopToggle noDrag"
                 onChange={(e) => { 
-                  setChecked(e.value)
+                  console.log(e)
+                  setChecked(e.checked)
                   console.log(`checked: ${checked}`) 
                 }}
                 disabled={false}

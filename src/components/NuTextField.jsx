@@ -17,7 +17,7 @@ export function NuTextField(props) {
         className='input' //outter div
         name={props.name}
         placeholder={props.placeholder}
-        inputStyles={inputStyles}      
+        inputStyles={inputStyles}    
         
 
       />

@@ -95,7 +95,11 @@
     "buildVersion": "1.0.105",
     "artifactName": "FocusS.pkg",
     "mac": {
-      "target": "mas"
+      "target": "mas",
+      "arch": [
+        "x64",
+        "arm64"
+      ]
     },
     "win": {
       "target": "portable",

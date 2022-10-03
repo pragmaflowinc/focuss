@@ -6,6 +6,7 @@ const path = require('path');
 const { app, BrowserWindow, ipcMain } = require('electron');
 const isDev = require('electron-is-dev');
 const { trackEvent } = require('./analytics');
+const { ToggleAlwaysOnTop, initAlwaysOnTop } = require('./toggleAlwaysOnTop');
 require('update-electron-app')()
 
 function createWindow() {
@@ -30,6 +31,7 @@ function createWindow() {
     node: {
       fs: 'empty'
     },
+    alwaysOnTop: initAlwaysOnTop(),
 
 
 
@@ -137,13 +139,15 @@ if (process.argv.includes('--noAnalytics')) {
 
 } else {
 
-  // console.log('analytics');
   ipcMain.on('get_data', (event, arg) => {
-    // event.sender.send('get_data', 'analytics')
-    // console.log('analytics')
+
     trackEvent('event', 'AppOnline');
   })
 }
 
+//when icp main receives 'ToggleAlwaysOnTop from renderer, it will toggle the window's always on top setting
+ipcMain.on('ToggleAlwaysOnTop', (event, arg) => {
+    ToggleAlwaysOnTop(arg, BrowserWindow.getAllWindows()[0])
+});
+
 global.trackEvent = trackEvent;
-// 

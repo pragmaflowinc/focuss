@@ -5,6 +5,10 @@
   text-align: center;
 }
 
+.noDrag{
+  -webkit-app-region: no-drag;
+}
+
 #root {
   text-align: center;
   width: 100%;
