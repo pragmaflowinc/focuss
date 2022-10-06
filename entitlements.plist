@@ -12,5 +12,13 @@
     <true/>
     <key>com.apple.security.cs.allow-jit</key>
     <true/>
+    <key>com.apple.security.cs.debugger</key>
+    <true/>
+    <key>SoftResourceLimits</key>
+    <dict>
+    <key>NumberOfFiles</key>
+      <integer>16384</integer>
+    </dict>
+    
   </dict>
 </plist>
