@@ -6,13 +6,15 @@ const path = require('path');
 const { app, BrowserWindow, ipcMain } = require('electron');
 const isDev = require('electron-is-dev');
 const { trackEvent } = require('./analytics');
-const { ToggleAlwaysOnTop, initAlwaysOnTop } = require('./toggleAlwaysOnTop');
-require('update-electron-app')()
+// const { ToggleAlwaysOnTop/*, initAlwaysOnTop*/ } = require('./toggleAlwaysOnTop');
+// require('update-electron-app')()
 
-function createWindow() {
+async function createWindow() {
+  // let alwaysOnTop = await initAlwaysOnTop();
   // Create the browser window.
   const win = new BrowserWindow({
     id: 'main',
+    title: 'mainWin',
     // show: false,
     width: 775,
     height: 150,
@@ -31,7 +33,7 @@ function createWindow() {
     node: {
       fs: 'empty'
     },
-    alwaysOnTop: initAlwaysOnTop(),
+    // alwaysOnTop
 
 
 
@@ -128,11 +130,11 @@ app.on('window-all-closed', () => {
   }
 });
 
-app.on('activate', () => {
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow();
-  }
-});
+// app.on('activate', () => {
+//   if (BrowserWindow.getAllWindows().length === 0) {
+//     createWindow();
+//   }
+// });
 
 if (process.argv.includes('--noAnalytics')) {
   console.log('no analytics');
@@ -145,9 +147,11 @@ if (process.argv.includes('--noAnalytics')) {
   })
 }
 
+
 //when icp main receives 'ToggleAlwaysOnTop from renderer, it will toggle the window's always on top setting
 ipcMain.on('ToggleAlwaysOnTop', (event, arg) => {
-    ToggleAlwaysOnTop(arg, BrowserWindow.getAllWindows()[0])
+  console.log(arg['checked']);
+  BrowserWindow.getFocusedWindow().setAlwaysOnTop(arg['checked'], "floating");
 });
 
 global.trackEvent = trackEvent;

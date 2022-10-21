@@ -17,44 +17,7 @@ const { ipcRenderer } = window.require('electron');
 
 
 function App() {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     todos: [],
-  //     value: "",
-  //   };
-  // }
-  // onChange = (e) => {
-  //   this.setState({ value: e.target.value });
-  // };
-  // onAddTask = (e) => {
-  //   e.preventDefault();
-
-  //   const obj = {
-  //     name: this.state.value,
-  //     id: Date.now(),
-  //   };
-  //   if (this.state.value !== "") {
-  //     this.setState({ todos: this.state.todos.concat(obj) });
-  //     this.setState({ value: "" });
-  //   }
-  // };
-
-  // onDeleteTask = (itemId) => {
-  //   this.setState({
-  //     todos: [...this.state.todos].filter((id) => id.id !== itemId),
-  //   });
-  // };
-
-  // const mylist = this.state.todos.map((todo) => (
-  //   <li className="todo_item">
-  //     {todo.name}
-
-  //     <NuIconButton onClick={() => this.onDeleteTask(todo.id)} />
-  //   </li>
-  // ));
-
-
+  
 
 
   useEffect(() => {
@@ -71,13 +34,14 @@ function App() {
     };
   }, []);
 
-  const [checked, setChecked] = useState();
+  const [checked, setChecked] = useState(false);
 
     useEffect(() => {
       // Listen for the event
       ipcRenderer.send('ToggleAlwaysOnTop', {checked})
     }, [checked]);
 
+ 
 
  
 
@@ -109,6 +73,7 @@ function App() {
                 className="alwaysOnTopToggle noDrag"
                 onChange={(e) => { 
                   console.log(e)
+                  localStorage.setItem('isAlwaysOnTop', `${e.checked}`);
                   setChecked(e.checked)
                   console.log(`checked: ${checked}`) 
                 }}
