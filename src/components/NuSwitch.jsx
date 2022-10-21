@@ -26,7 +26,7 @@ export function NuSwitch(props) {
       // onclick={onclick}
       label={label}
       // disabled={disabled || false}
-      checked={!checked}
+      checked={checked}
       onChange={onChange}
       defaultChecked={defaultChecked}
     />

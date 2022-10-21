@@ -43,6 +43,7 @@ https://www.electronjs.org/docs/latest/api/browser-window#winsetalwaysontopflag-
 
 ## Minimize to Tray, Windows
 https://medium.com/@onur.polattimur/electron-frameless-window-close-and-minimize-to-tray-5bab47f66f82
+
 ## UI-Neumorphism Library 
 https://akaspanion.github.io/ui-neumorphism/ /  https://www.npmjs.com/package/ui-neumorphism
 
@@ -77,4 +78,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 ### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+
+### Past Errors
+# Codesign error 0
+can result from enabling auto-update api when not properly codesigned.
 

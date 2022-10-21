@@ -32,3 +32,5 @@ AuthKey*
 private_keys/
 
 *provisionprofile
+
+/out/
