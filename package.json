@@ -6,37 +6,54 @@
     "private": true,
     "provisioning": "Apple Distribution",
     "dependencies": {
+     
+      "electron-is-dev": "^2.0.0",
+      "node-localstorage": "^2.2.1",
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0",
+      "react-timer-hook": "^3.0.5",
+      "ui-neumorphism": "^1.1.3",
+      "universal-analytics": "^0.5.3",
+      "uuid": "^9.0.0",
+      "web-vitals": "^2.1.4"
+    },
+
+
+    "devDependencies": {
       "assert": "^2.0.0",
       "cra-template": "1.2.0",
       "cryptiles": "^4.1.3",
-      "docker": "^1.0.0",
       "dotenv": "^16.0.3",
-      "electron-is-dev": "^2.0.0",
-      "electron-squirrel-startup": "^1.0.0",
-      "electron-updater": "^5.2.1",
-      "focuss": "https://github.com/pragmaflowinc/focuss",
-      "fs": "^0.0.1-security",
-      "ga-gtag": "^1.1.1",
-      "lodash": "^4.17.21",
-      "marked": "^4.1.0",
-      "node-localstorage": "^2.2.1",
       "npm": "^8.18.0",
       "nth-check": "^2.1.1",
       "os": "^0.1.2",
       "path": "^0.12.7",
-      "react": "^18.2.0",
+      "electron-squirrel-startup": "^1.0.0",
+      "electron-updater": "^5.2.1",
+      "fs": "^0.0.1-security",
+      "lodash": "^4.17.21",
+      "marked": "^4.1.0",
       "react-countdown": "^2.3.2",
-      "react-dom": "^18.2.0",
       "react-scripts": "^5.0.1",
-      "react-timer-hook": "^3.0.5",
-      "ui-neumorphism": "^1.1.3",
-      "universal-analytics": "^0.5.3",
       "update-electron-app": "^2.0.1",
-      "uuid": "^9.0.0",
       "v8-compile-cache": "^2.3.0",
-      "web-vitals": "^2.1.4",
-      "yarn": "^1.22.19"
+
+      "@babel/core": "^7.19.3",
+      "@babel/preset-react": "^7.18.6",
+      "@electron-forge/cli": "^6.0.0-beta.67",
+      "@electron-forge/maker-deb": "^6.0.0-beta.67",
+      "@electron-forge/maker-dmg": "^6.0.0-beta.67",
+      "@electron-forge/maker-rpm": "^6.0.0-beta.67",
+      "@electron-forge/maker-squirrel": "^6.0.0-beta.67",
+      "@electron-forge/maker-zip": "^6.0.0-beta.67",
+      "babel-loader": "^8.2.5",
+      "concurrently": "^7.3.0",
+      "cross-var": "1.1.0",
+      "dotenv-cli": "3.0.0",
+      "electron": "^21.0.1",
+      "wait-on": "^6.0.1"
     },
+
     "main": "./public/electron.js",
     "macStoreOutputPath": "./FocusS-mas-x64/FocusS.app",
     "repository": {
@@ -90,22 +107,7 @@
         "last 1 safari version"
       ]
     },
-    "devDependencies": {
-      "@babel/core": "^7.19.3",
-      "@babel/preset-react": "^7.18.6",
-      "@electron-forge/cli": "^6.0.0-beta.67",
-      "@electron-forge/maker-deb": "^6.0.0-beta.67",
-      "@electron-forge/maker-dmg": "^6.0.0-beta.67",
-      "@electron-forge/maker-rpm": "^6.0.0-beta.67",
-      "@electron-forge/maker-squirrel": "^6.0.0-beta.67",
-      "@electron-forge/maker-zip": "^6.0.0-beta.67",
-      "babel-loader": "^8.2.5",
-      "concurrently": "^7.3.0",
-      "cross-var": "1.1.0",
-      "dotenv-cli": "3.0.0",
-      "electron": "^21.0.1",
-      "wait-on": "^6.0.1"
-    },
+   
     "build": {
       "appId": "com.pragmaflow.focuss",
       "productName": "FocusS",
