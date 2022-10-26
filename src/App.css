@@ -1,8 +1,25 @@
 
 
 
+body{
+  background-color: #00000000 !important;
+  padding:0 !important;
+  
+  
+}
+
 .App {
   text-align: center;
+  background-color:#282c34;
+  transform: scale(0.99);
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 10px;
+  margin: 4px 4px 10px;
+  
+  box-shadow:  inset 3px 3px 4px 2px #44444410,  inset -2px -2px 4px 2px #11111122;
+  
+
 }
 
 .noDrag{
@@ -28,10 +45,7 @@
 }
 
 html {
-  background-color: #282c34;
   -webkit-app-region: drag;
-  
-  
 }
 
 /* * {
@@ -48,7 +62,7 @@ body {
 
 #body {
   width: 100%;
-  margin: auto;
+  
    
 
 }
@@ -63,6 +77,13 @@ input[name="mainInput"]{
   
   /* use padding to control text field height insteal of calcs -Dave */
   
+}
+
+.buttonRow {
+
+  display: flex;
+  flex-direction: horizontal;
+  justify-Content: flex-end;
 }
 
 .row {
@@ -90,6 +111,12 @@ input[type="text"]{
 
 }
 
+.alwaysOnTopToggle label p{
+  font-size: small;
+  color: #757575;
+  
+
+}
 
 .App-logo {
   height: 40vmin;

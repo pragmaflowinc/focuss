@@ -5,6 +5,10 @@ import { NuSwitch } from './components/NuSwitch';
 // import { NuIconButton } from './components/NuIconButton'
 // import { Countdown } from './components/Timer'
 import './App.css';
+import { overrideThemeVariables } from 'ui-neumorphism';
+
+import 'ui-neumorphism/dist/index.css'
+import { theme } from './theme.js'
 
 const { ipcRenderer } = window.require('electron');
 
@@ -22,6 +26,8 @@ function App() {
 
   useEffect(() => {
     // Listen for the event
+    overrideThemeVariables(theme)
+
     ipcRenderer.send('get_data', {})
 
     ipcRenderer.on('get_data', (event, arg) => {
@@ -46,7 +52,7 @@ function App() {
  
 
   return (
-    <div className="App" border-radius="500px">
+    <div className="App">
 
       <header className="App-header">
         <div id="body" className="column">
@@ -58,19 +64,18 @@ function App() {
               placeholder="What's the next focus?"
               styles={{
                 display: "block",
-                margin: 0,
+                inputStyles: {margin:0}
               }}
 
 
             />
-            <div className="buttonRow"
-              margin={0}
-              
-            >
+            <div className="buttonRow">
 
               <NuSwitch
-                label="Always on top"
                 className="alwaysOnTopToggle noDrag"
+                color="#262a32"
+                label="Always on top"
+            
                 onChange={(e) => { 
                   console.log(e)
                   localStorage.setItem('isAlwaysOnTop', `${e.checked}`);
@@ -79,8 +84,10 @@ function App() {
                 }}
                 disabled={false}
                 checked={checked}
+
                 styles={{
-                  margin: 0,
+                  
+                  
                 }}
 
 

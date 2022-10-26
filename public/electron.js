@@ -19,10 +19,13 @@ async function createWindow() {
     width: 775,
     height: 150,
     frame: false, //remove window frame
+    roundedCorners: true,
+    radii: [50,50,50,50],
+    backgroundColor: '#00000000',
     titleBarStyle: 'customButtonsOnHover', //mac buttons mod
     // titleBarStyle: 'hidden', //remove title bar in windows
     titleBarOverlay: false, //remove min/max/close buttons
-    hasShadow: true, //remove shadow
+    hasShadow: true,
     maximizable: false, //prevent double-click to mazimize
     webPreferences: {
       nodeIntegration: true,
@@ -47,7 +50,7 @@ async function createWindow() {
   //Always on top -this might not be needed since repeats above. On other hand, might be better implementation for dynamic always on top setting.
   // win.setVisibleOnAllWorkspaces(true, {visibleOnFullScreen:true});
   // win.setAlwaysOnTop(true, "normal")
-
+  win.setBackgroundColor('rgba(0, 0, 0, 0)')
   win.setFullScreenable(false)
   win.moveTop()
 
