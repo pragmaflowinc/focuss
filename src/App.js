@@ -64,12 +64,12 @@ function App() {
               placeholder="What's the next focus?"
               styles={{
                 display: "block",
-                inputStyles: {margin:0}
+                margin: 0
               }}
 
 
             />
-            <div className="buttonRow">
+            <div className="buttonRow" margin-top="5px">
 
               <NuSwitch
                 className="alwaysOnTopToggle noDrag"
@@ -86,7 +86,7 @@ function App() {
                 checked={checked}
 
                 styles={{
-                  
+                  margin:0             
                   
                 }}
 

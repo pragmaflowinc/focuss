@@ -13,6 +13,7 @@ export function NuSwitch(props) {
     checked,
     onChange,
     defaultChecked,
+    styles,
   } = props;
 
   return (
@@ -29,6 +30,7 @@ export function NuSwitch(props) {
       checked={checked}
       onChange={onChange}
       defaultChecked={defaultChecked}
+      style={styles} 
     />
   );
 }

@@ -17,7 +17,10 @@ async function createWindow() {
     title: 'mainWin',
     // show: false,
     width: 775,
+    minWidth: 775,
     height: 150,
+    minHeight: 150,
+    maxHeight: 150,
     frame: false, //remove window frame
     roundedCorners: true,
     radii: [50,50,50,50],
