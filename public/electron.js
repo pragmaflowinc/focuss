@@ -157,7 +157,12 @@ if (process.argv.includes('--noAnalytics')) {
 //when icp main receives 'ToggleAlwaysOnTop from renderer, it will toggle the window's always on top setting
 ipcMain.on('ToggleAlwaysOnTop', (event, arg) => {
   console.log(arg['checked']);
-  BrowserWindow.getFocusedWindow().setAlwaysOnTop(arg['checked'], "floating");
+  try {
+    BrowserWindow.getFocusedWindow().setAlwaysOnTop(arg['checked'], "floating");  
+  } catch (error) {
+    console.log(error)
+  }
+  
 });
 
 global.trackEvent = trackEvent;
