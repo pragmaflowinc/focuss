@@ -137,17 +137,12 @@
         "icon": "./build/favicon"
       },
       "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "focuss"
-          }
-        },
+  
         {
           "name": "@electron-forge/maker-zip",
           "platforms": [
             "darwin",
-            "win"
+            "win32"
           ]
         },
         {
