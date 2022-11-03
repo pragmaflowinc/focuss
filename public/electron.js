@@ -9,6 +9,8 @@ const { trackEvent } = require('./analytics');
 // const { ToggleAlwaysOnTop/*, initAlwaysOnTop*/ } = require('./toggleAlwaysOnTop');
 // require('update-electron-app')()
 
+app.commandLine.appendSwitch('lang', 'en-US');
+
 async function createWindow() {
   // let alwaysOnTop = await initAlwaysOnTop();
   // Create the browser window.

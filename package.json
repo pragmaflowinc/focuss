@@ -13,13 +13,10 @@
     "react-timer-hook": "^3.0.5",
     "ui-neumorphism": "^1.1.3",
     "universal-analytics": "^0.5.3",
-    "uuid": "^9.0.0",
-    "web-vitals": "^2.1.4"
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "depcheck": "^1.4.3",
-    "@babel/core": "^7.19.3",
-    "@babel/preset-react": "^7.18.6",
     "@electron-forge/cli": "^6.0.0-beta.67",
     "@electron-forge/maker-deb": "^6.0.0-beta.67",
     "@electron-forge/maker-dmg": "^6.0.0-beta.67",
@@ -27,7 +24,6 @@
     "@electron-forge/maker-squirrel": "^6.0.0-beta.67",
     "@electron-forge/maker-zip": "^6.0.0-beta.67",
     "assert": "^2.0.0",
-    "babel-loader": "^8.2.5",
     "concurrently": "^7.3.0",
     "cra-template": "1.2.0",
     "cross-var": "1.1.0",
@@ -50,7 +46,7 @@
     "v8-compile-cache": "^2.3.0",
     "wait-on": "^6.0.1"
   },
-  "main": "./public/electron.js",
+  "main": "./build/electron.js",
   "macStoreOutputPath": "./FocusS-mas-x64/FocusS.app",
   "repository": {
     "type": "git",
@@ -108,6 +104,9 @@
     "buildVersion": "1.0.105",
     "artifactName": "FocusS.pkg",
     "mac": {
+      "electronLanguages": [
+        "en-US"
+      ],
       "target": {
         "target": "mas",
         "arch": [
@@ -118,7 +117,7 @@
     },
     "win": {
       "target": "portable",
-      "icon": "./public/favicon.png"
+      "icon": "./build/favicon.png"
     },
     "nsis": {
       "artifactName": "FocusS"
@@ -132,12 +131,30 @@
   },
   "config": {
     "forge": {
+      "hooks": {
+        "postPackage": "./removeLocales.js"
+      },
       "packagerConfig": {
+        "ignore": [
+          "^/[.]",
+          "^/public",
+          "^/src",
+          "^/dist",
+          "^[.]bashrc",
+          "^[.]out",
+          "^[.]vscode",
+          "removeLocales.js$",
+          "[.](cmd|user|DotSettings|njsproj|sln)$",
+          ".plist$",
+          "[.]md",
+          "^/doc"
+        ],
         "dir": "./build",
         "icon": "./build/favicon"
       },
+      
+      
       "makers": [
-  
         {
           "name": "@electron-forge/maker-zip",
           "platforms": [
