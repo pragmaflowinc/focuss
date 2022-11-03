@@ -16,7 +16,6 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "depcheck": "^1.4.3",
     "@electron-forge/cli": "^6.0.0-beta.67",
     "@electron-forge/maker-deb": "^6.0.0-beta.67",
     "@electron-forge/maker-dmg": "^6.0.0-beta.67",
@@ -161,14 +160,6 @@
             "darwin",
             "win32"
           ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
         },
         {
           "name": "@electron-forge/maker-dmg",
