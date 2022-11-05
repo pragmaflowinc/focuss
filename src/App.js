@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { NuTextField } from './components/NuTextField'
+import React, { useEffect, useState } from "react";
+import { NuTextField } from "./components/NuTextField";
 // import { NuToggle } from './components/NuToggle';
-import { NuSwitch } from './components/NuSwitch';
+import { NuSwitch } from "./components/NuSwitch";
 // import { NuIconButton } from './components/NuIconButton'
 // import { Countdown } from './components/Timer'
-import './App.css';
-import { overrideThemeVariables } from 'ui-neumorphism';
+import "./App.css";
+import { overrideThemeVariables } from "ui-neumorphism";
 
-import 'ui-neumorphism/dist/index.css'
-import { theme } from './theme.js'
+import "ui-neumorphism/dist/index.css";
+import { theme } from "./theme.js";
+import Accordion from "./components/accordion";
 
-const { ipcRenderer } = window.require('electron');
+const { ipcRenderer } = window.require("electron");
 
 //test
 
@@ -18,21 +19,15 @@ const { ipcRenderer } = window.require('electron');
 //   document.getElementsByName('mainInput')[0].setState({ value: "" })
 // }
 
-
-
 function App() {
-  
-
-
   useEffect(() => {
     // Listen for the event
-    overrideThemeVariables(theme)
+    overrideThemeVariables(theme);
 
-    ipcRenderer.send('get_data', {})
+    ipcRenderer.send("get_data", {});
 
-    ipcRenderer.on('get_data', (event, arg) => {
+    ipcRenderer.on("get_data", (event, arg) => {
       console.log(arg);
-
     });
     // Clean the listener after the component is dismounted
     return () => {
@@ -42,58 +37,44 @@ function App() {
 
   const [checked, setChecked] = useState(false);
 
-    useEffect(() => {
-      // Listen for the event
-      ipcRenderer.send('ToggleAlwaysOnTop', {checked})
-    }, [checked]);
-
- 
-
- 
+  useEffect(() => {
+    // Listen for the event
+    ipcRenderer.send("ToggleAlwaysOnTop", { checked });
+  }, [checked]);
 
   return (
     <div className="App">
-
       <header className="App-header">
         <div id="body" className="column">
-
-          <div className='row'>
-
+          <div className="row">
             <NuTextField
               name="mainInput"
               placeholder="What's the next focus?"
               styles={{
                 display: "block",
-                margin: 0
+                margin: 0,
               }}
-
-
             />
-            <div className="buttonRow" margin-top="5px">
-
-              <NuSwitch
-                className="alwaysOnTopToggle noDrag"
-                color="#262a32"
-                label="Always on top"
-            
-                onChange={(e) => { 
-                  console.log(e)
-                  localStorage.setItem('isAlwaysOnTop', `${e.checked}`);
-                  setChecked(e.checked)
-                  console.log(`checked: ${checked}`) 
-                }}
-                disabled={false}
-                checked={checked}
-
-                styles={{
-                  margin:0             
-                  
-                }}
-
-
-              />
-
-            </div>
+            <Accordion>
+              <div className="buttonRow" margin-top="5px">
+                <NuSwitch
+                  className="alwaysOnTopToggle noDrag"
+                  color="#262a32"
+                  label="Always on top"
+                  onChange={(e) => {
+                    console.log(e);
+                    localStorage.setItem("isAlwaysOnTop", `${e.checked}`);
+                    setChecked(e.checked);
+                    console.log(`checked: ${checked}`);
+                  }}
+                  disabled={false}
+                  checked={checked}
+                  styles={{
+                    margin: 0,
+                  }}
+                />
+              </div>
+            </Accordion>
             {/* <NuIconButton 
                     onclick = {clearInput} 
                     display="none"
@@ -104,7 +85,6 @@ function App() {
             {/* <div className="row">
               <ul className="todo_wrapper">{mylist}</ul>
             </div> */}
-
           </div>
           {/* <div style={{
               // paddingLeft:"20px"
@@ -135,10 +115,8 @@ function App() {
             </div> */}
         </div>
       </header>
-
     </div>
   );
 }
-
 
 export default App;
