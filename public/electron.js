@@ -16,13 +16,14 @@ async function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
     id: 'main',
-    title: 'mainWin',
+    title: 'Focuss',
+    resizable: true,
     // show: false,
     width: 775,
     minWidth: 775,
-    height: 150,
+    height: 250,
     minHeight: 150,
-    maxHeight: 150,
+    // maxHeight: 150,
     frame: false, //remove window frame
     roundedCorners: true,
     radii: [50,50,50,50],
@@ -124,8 +125,8 @@ async function createWindow() {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(createWindow);
-// let mainWin = BrowserWindow.getAllWindows()[0]
-// console.log(`mainWin: ${mainWin}`)
+// let Focuss = BrowserWindow.getAllWindows()[0]
+// console.log(`Focuss: ${Focuss}`)
 
 
 

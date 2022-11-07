@@ -9,7 +9,9 @@ import { overrideThemeVariables } from "ui-neumorphism";
 
 import "ui-neumorphism/dist/index.css";
 import { theme } from "./theme.js";
-import Accordion from "./components/accordion";
+// import AccordionMUI from "./components/AccordionMUI";
+// import SimpleAccordion from "./components/SimpleAccordion";
+import FastAccordion from "./components/FastAccordion";
 
 const { ipcRenderer } = window.require("electron");
 
@@ -36,6 +38,7 @@ function App() {
   }, []);
 
   const [checked, setChecked] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     // Listen for the event
@@ -55,26 +58,32 @@ function App() {
                 margin: 0,
               }}
             />
-            <Accordion>
-              <div className="buttonRow" margin-top="5px">
-                <NuSwitch
-                  className="alwaysOnTopToggle noDrag"
-                  color="#262a32"
-                  label="Always on top"
-                  onChange={(e) => {
-                    console.log(e);
-                    localStorage.setItem("isAlwaysOnTop", `${e.checked}`);
-                    setChecked(e.checked);
-                    console.log(`checked: ${checked}`);
-                  }}
-                  disabled={false}
-                  checked={checked}
-                  styles={{
-                    margin: 0,
-                  }}
-                />
-              </div>
-            </Accordion>
+            <FastAccordion
+              id='menuAccordion'
+              iconPath='runner'
+              iconColor='red'
+              detailsBackgroundColor='red'
+              
+              expanded={true}
+              onChange={() => setExpanded(!expanded)}
+              onClick={() => setExpanded(!expanded)}
+              style={{ 
+                
+                height: "200px",
+                backgroundColor: "black",
+
+
+
+                }}
+              children={
+
+                <div className="buttonRow" margin-top="5px">
+                   
+                </div>}
+            />
+
+
+
             {/* <NuIconButton 
                     onclick = {clearInput} 
                     display="none"
