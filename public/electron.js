@@ -17,11 +17,9 @@ async function createWindow() {
   const win = new BrowserWindow({
     id: 'main',
     title: 'Focuss',
-    resizable: true,
     // show: false,
     width: 775,
     minWidth: 775,
-    height: 250,
     minHeight: 150,
     // maxHeight: 150,
     frame: false, //remove window frame
@@ -167,5 +165,12 @@ ipcMain.on('ToggleAlwaysOnTop', (event, arg) => {
   }
   
 });
+
+
+ipcMain.on('toggleHeight', (event, arg) => {
+  console.log(arg);
+  BrowserWindow.getFocusedWindow.setSize(arg, BrowserWindow.getFocusedWindow.getSize()[1])
+})
+
 
 global.trackEvent = trackEvent;
