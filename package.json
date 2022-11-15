@@ -66,7 +66,7 @@
     "build:linux": "yarn build && electron-builder -l -c.extraMetadata.main=build/electron.js",
     "build:macstore": "electron-builder --macos --universal",
     "build:macstore-old": "electron-packager . 'FocusS' --app-version='1.0.1' --build-version='1.0.106' --platform=mas --arch=x64 --app-bundle-id=com.pragmaflow.focuss --helper-bundle-id=com.pragmaflow.focuss.helper --icon='./build/favicon.icns' --ignore='dist/' --overwrite --out ./dist/mas --osx-sign &&  electron-osx-flat './dist/mas/FocusS.app' --verbose",
-    "sign:mac": "electron-osx-sign './dist/mas/FocusS.app' --entitlements=./build/entitlements.plist --verbose",
+    "sign:mac": "electron-osx-sign './out/make/zip/darwin/x64/FocusS.app' --entitlements=./build/entitlements.plist --verbose",
     "sign:mac2": "electron-osx-sign './out/focuss-mas-x64/focuss.app' --entitlements=./build/entitlements.plist --verbose",
     "flat": "electron-osx-flat './dist/mas/FocusS.app' --verbose",
     "flat2": "electron-osx-flat './out/focuss-mas-x64/focuss.app' --verbose",
